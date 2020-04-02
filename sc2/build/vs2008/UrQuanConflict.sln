@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UrQuanConflict", "UrQuanConflict.vcproj", "{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug NoAccel|Win32 = Debug NoAccel|Win32
+		Debug|Win32 = Debug|Win32
+		Release NoAccel|Win32 = Release NoAccel|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Debug NoAccel|Win32.ActiveCfg = Release|Win32
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Debug NoAccel|Win32.Build.0 = Release|Win32
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Debug|Win32.ActiveCfg = Debug|Win32
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Debug|Win32.Build.0 = Debug|Win32
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Release NoAccel|Win32.ActiveCfg = Release|Win32
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Release NoAccel|Win32.Build.0 = Release|Win32
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Release|Win32.ActiveCfg = Release|Win32
+		{3CF567E6-340D-4CA1-ADB0-22C1FCF3BB31}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
