@@ -106,7 +106,7 @@ TFB_Pure_ConfigureVideo (int driver, int flags, int width, int height, int toggl
 		SDL_RendererInfo info;
 		char caption[200];
 
-		sprintf (caption, "The Ur-Quan Masters v%d.%d.%d%s",
+		sprintf (caption, "The Ur-Quan Conflict v%d.%d.%d%s",
 				UQM_MAJOR_VERSION, UQM_MINOR_VERSION,
 				UQM_PATCH_VERSION, UQM_EXTRA_VERSION);
 		window = SDL_CreateWindow (caption,
@@ -245,7 +245,7 @@ TFB_Pure_InitGraphics (int driver, int flags, int width, int height)
 	log_add (log_Info, "Initializing Screen.");
 
 	ScreenWidth = 320;
-	ScreenHeight = 240;
+	ScreenHeight = 200;
 
 	if (TFB_Pure_ConfigureVideo (driver, flags, width, height, 0))
 	{

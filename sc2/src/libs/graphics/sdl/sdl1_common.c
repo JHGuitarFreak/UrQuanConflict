@@ -49,7 +49,7 @@ TFB_PreInit (void)
 			SDL_Linked_Version ()->minor != SDL_MINOR_VERSION ||
 			SDL_Linked_Version ()->patch != SDL_PATCHLEVEL) {
 		log_add (log_Warning, "The used SDL library is not the same version "
-				"as the one used to compile The Ur-Quan Masters with! "
+				"as the one used to compile The Ur-Quan Conflict with! "
 				"If you experience any crashes, this would be an excellent "
 				"suspect.");
 	}
@@ -97,7 +97,7 @@ TFB_ReInitGraphics (int driver, int flags, int width, int height)
 				togglefullscreen);
 	}
 
-	sprintf (caption, "The Ur-Quan Masters v%d.%d.%d%s",
+	sprintf (caption, "The Ur-Quan Conflict v%d.%d.%d%s",
 			UQM_MAJOR_VERSION, UQM_MINOR_VERSION,
 			UQM_PATCH_VERSION, UQM_EXTRA_VERSION);
 	SDL_WM_SetCaption (caption, NULL);

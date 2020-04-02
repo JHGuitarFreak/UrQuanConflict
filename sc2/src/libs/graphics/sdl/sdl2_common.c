@@ -51,7 +51,7 @@ TFB_PreInit (void)
 			compiled.patch != linked.patch)
 	{
 		log_add (log_Warning, "The used SDL library is not the same version "
-				"as the one used to compile The Ur-Quan Masters with! "
+				"as the one used to compile The Ur-Quan Conflict with! "
 				"If you experience any crashes, this would be an excellent "
 				"suspect.");
 	}

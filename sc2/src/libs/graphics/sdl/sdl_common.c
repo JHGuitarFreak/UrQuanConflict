@@ -82,7 +82,7 @@ TFB_InitGraphics (int driver, int flags, int width, int height)
 
 #if SDL_MAJOR_VERSION == 1
 	/* Other versions do this when setting up the window */
-	sprintf (caption, "The Ur-Quan Masters v%d.%d.%d%s",
+	sprintf (caption, "The Ur-Quan Conflict v%d.%d.%d%s",
 			UQM_MAJOR_VERSION, UQM_MINOR_VERSION,
 			UQM_PATCH_VERSION, UQM_EXTRA_VERSION);
 	SDL_WM_SetCaption (caption, NULL);

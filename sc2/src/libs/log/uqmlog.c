@@ -288,7 +288,7 @@ displayLog (bool isError)
 
 	if (isError)
 	{
-		strcpy (p, "The Ur-Quan Masters encountered a fatal error.\n"
+		strcpy (p, "The Ur-Quan Conflict encountered a fatal error.\n"
 				"Part of the log follows:\n\n");
 		len = strlen (p);
 		p += len;
@@ -325,6 +325,6 @@ displayLog (bool isError)
 	
 	*p = '\0';
 
-	log_displayBox ("The Ur-Quan Masters", isError, msgBuf);
+	log_displayBox ("The Ur-Quan Conflict", isError, msgBuf);
 }
 
