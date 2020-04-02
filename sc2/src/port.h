@@ -3,7 +3,7 @@
 
 #include "config.h"
 
-#ifdef __MINGW32__
+#ifdef NEVER
 // Microsoft Windows headers expect this to be set. The MSVC compiler sets
 // it, but MinGW doesn't.
 #	if defined(_X86_)
@@ -160,9 +160,12 @@ typedef unsigned short mode_t;
 // String formatting
 #ifdef _MSC_VER
 #	include <stdarg.h>
-// Defined in port.c
-int snprintf(char *str, size_t size, const char *format, ...);
+#if (_MSC_VER < 1500) 
+// Use Windows SDK version of snprintf & vsnprintf when building with Visual Studio
+// versions higher than 2005 - Serosis
+int snprintf(char* str, size_t size, const char* format, ...);
 int vsnprintf(char *str, size_t size, const char *format, va_list args);
+#endif
 #endif  /* _MSC_VER */
 
 // setenv()
