@@ -281,7 +281,8 @@ InitShipStatus (SHIP_INFO *SIPtr, STARSHIP *StarShipPtr, RECT *pClipRect)
 			Text.baseline.x = STATUS_WIDTH >> 1;
 			Text.baseline.y = y + GAUGE_YOFFS + 3;
 
-			SetContextForeGroundColor (BLACK_COLOR);
+			SetContextForeGroundColor (
+					BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
 			font_DrawText (&Text);
 
 			SetContextFont (OldFont);
