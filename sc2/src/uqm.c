@@ -301,7 +301,7 @@ main (int argc, char *argv[])
 		return EXIT_SUCCESS;
 	}
 	
-	log_add (log_User, "The Ur-Quan Masters v%d.%d.%d%s (compiled %s %s)\n"
+	log_add (log_User, "The Ur-Quan Conflict v%d.%d.%d%s (compiled %s %s)\n"
 	        "This software comes with ABSOLUTELY NO WARRANTY;\n"
 			"for details see the included 'COPYING' file.\n",
 			UQM_MAJOR_VERSION, UQM_MINOR_VERSION,
@@ -840,6 +840,17 @@ parseOptions (int argc, char *argv[], struct options_struct *options)
 		saveError ("Error: Bad command line.");
 		return EXIT_FAILURE;
 	}
+
+#ifdef __APPLE__
+	// If we are launched by double-clicking an application bundle, Finder
+	// sticks a "-psn_<some_number>" argument into the list, which makes
+	// getopt extremely unhappy. Check for this case and wipe out the
+	// entire command line if it looks like it happened.
+	if ((argc >= 2) && (strncmp (argv[1], "-psn_", 5) == 0))
+	{
+		return EXIT_SUCCESS;
+	}
+#endif
 
 	while (!badArg)
 	{

@@ -3,7 +3,7 @@
 
 #include "config.h"
 
-#ifdef __MINGW32__
+#ifdef NEVER
 // Microsoft Windows headers expect this to be set. The MSVC compiler sets
 // it, but MinGW doesn't.
 #	if defined(_X86_)
@@ -176,8 +176,12 @@ typedef unsigned short mode_t;
 #if defined(__cplusplus)
 extern "C" {
 #endif
-int snprintf(char *str, size_t size, const char *format, ...);
+#if (_MSC_VER < 1500) 
+// Use Windows SDK version of snprintf & vsnprintf when building with Visual Studio
+// versions higher than 2005 - Serosis
+int snprintf(char* str, size_t size, const char* format, ...);
 int vsnprintf(char *str, size_t size, const char *format, va_list args);
+#endif
 #if defined(__cplusplus)
 }
 #endif
@@ -487,31 +491,9 @@ typedef unsigned int wint_t;
 #	endif  /* defined (__FreeBSD__) || defined (__OpenBSD__) */
 #endif  /* defined (PORT_WANT_ERRNO) */
 
-// Use SDL_INCLUDE and SDL_IMAGE_INCLUDE to portably include the SDL files
-// from the right location.
-// TODO: Where the SDL and SDL_image headers are located could be detected
-//       from the build script.
-#ifdef __APPLE__
-	// SDL_image.h in a directory SDL_image under the include dir.
-#	define SDL_DIR SDL
-#	define SDL_IMAGE_DIR SDL_image
-#else
-	// SDL_image.h directly under the include dir.
-#	undef SDL_DIR
-#	undef SDL_IMAGE_DIR
-#endif
-
-#ifdef SDL_DIR
-#	define SDL_INCLUDE(file) <SDL_DIR/file>
-#else
-#	define SDL_INCLUDE(file) <file>
-#endif  /* SDL_DIR */
-
-#ifdef SDL_IMAGE_DIR
-#	define SDL_IMAGE_INCLUDE(file) <SDL_IMAGE_DIR/file>
-#else
-#	define SDL_IMAGE_INCLUDE(file) <file>
-#endif  /* SDL_IMAGE_DIR */
+// Use SDL_INCLUDE to portably include the SDL files from the right location.
+// The SDL_DIR definition is provided by the build configuration.
+#define SDL_INCLUDE(file) #file
 
 // Mark a function as using printf-style function arguments, so that
 // extra consistency checks can be made by the compiler.

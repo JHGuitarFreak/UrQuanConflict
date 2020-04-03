@@ -6,10 +6,10 @@ Var MAKEICON
 Var UQMUSERDATA
 
 ; HM NIS Edit Wizard helper defines
-!define PRODUCT_NAME "The Ur-Quan Masters"
+!define PRODUCT_NAME "The Ur-Quan Conflict"
 !define PRODUCT_VERSION "0.7.0"
 !define PRODUCT_WEB_SITE "http://sc2.sourceforge.net"
-!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\uqm.exe"
+!define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\UrQuanConflict.exe"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define PRODUCT_STARTMENU_REGVAL "NSIS:StartMenuDir"
@@ -58,7 +58,7 @@ RequestExecutionLevel admin
 ; Start menu page
 var ICONS_GROUP
 !define MUI_STARTMENUPAGE_NODISABLE
-!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Games\The Ur-Quan Masters"
+!define MUI_STARTMENUPAGE_DEFAULTFOLDER "Games\The Ur-Quan Conflict"
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "${PRODUCT_UNINST_ROOT_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "${PRODUCT_UNINST_KEY}"
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "${PRODUCT_STARTMENU_REGVAL}"
@@ -69,7 +69,7 @@ var ICONS_GROUP
 !define MUI_FINISHPAGE_RUN_NOTCHECKED
 !define MUI_FINISHPAGE_NOREBOOTSUPPORT
 !define MUI_FINISHPAGE_SHOWREADME "$INSTDIR\README.txt"
-!define MUI_FINISHPAGE_RUN "$INSTDIR\uqm.exe"
+!define MUI_FINISHPAGE_RUN "$INSTDIR\UrQuanConflict.exe"
 !define MUI_FINISHPAGE_RUN_PARAMETERS $UQMARGS
 !insertmacro MUI_PAGE_FINISH
 
@@ -85,7 +85,7 @@ var ICONS_GROUP
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "uqm-${PRODUCT_VERSION}${INSTALLER_VERSION}-installer.exe"
-InstallDir "$PROGRAMFILES\The Ur-Quan Masters\"
+InstallDir "$PROGRAMFILES\The Ur-Quan Conflict\"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
 ShowUnInstDetails show
@@ -105,15 +105,15 @@ Function .onInit
   StrCpy $MAKEICON 0
   ReadEnvStr $0 APPDATA
   StrCmp $0 "" NoAppData
-  ExpandEnvStrings $UQMUSERDATA "%APPDATA%\uqm"
+  ExpandEnvStrings $UQMUSERDATA "%APPDATA%\UrQuanConflict"
   Goto GotAppData
 NoAppData:
   ReadEnvStr $0 USERPROFILE
   StrCmp $0 "" NoProfile
-  ExpandEnvStrings $UQMUSERDATA "%USERPROFILE%\Application Data\uqm"
+  ExpandEnvStrings $UQMUSERDATA "%USERPROFILE%\Application Data\UrQuanConflict"
   Goto GotAppData
 NoProfile:
-  StrCpy $UQMUSERDATA "$INSTDIR\userdata\uqm"
+  StrCpy $UQMUSERDATA "$INSTDIR\userdata\UrQuanConflict"
 GotAppData:
 FunctionEnd
 

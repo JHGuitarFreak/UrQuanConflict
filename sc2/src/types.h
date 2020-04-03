@@ -85,6 +85,12 @@ extern "C" {
 #	endif
 #endif /* !__STRICT_ANSI__ */
 
+#ifdef _MSC_VER
+#	if (_MSC_VER >= 1800)
+#		include <stdbool.h>
+#	endif
+#endif
+
 // ISO C99 compatible boolean types. The ISO C99 standard defines:
 // - An object declared as type _Bool, large enough to store the values 0
 //   and 1, the rank of which is less than the rank of all other standard
@@ -165,10 +171,13 @@ UQM_COMPILE_TIME_ASSERT(uint64, sizeof(uint64) == 8);
 #undef SINT16_MAX
 #undef SINT32_MIN
 #undef SINT32_MAX
+#undef SINT64_MIN
+#undef SINT64_MAX
 
 #undef UINT8_MAX
 #undef UINT16_MAX
 #undef UINT32_MAX
+#undef UINT64_MAX
 
 #define SINT8_MIN  (-128)
 #define SINT8_MAX  127
@@ -176,10 +185,13 @@ UQM_COMPILE_TIME_ASSERT(uint64, sizeof(uint64) == 8);
 #define SINT16_MAX 32767
 #define SINT32_MIN (-2147483647-1)
 #define SINT32_MAX 2147483647
+#define SINT64_MIN (-281474976710655-1)
+#define SINT64_MAX 281474976710655
 
 #define UINT8_MAX  0xff /* 255U */
 #define UINT16_MAX 0xffff /* 65535U */
 #define UINT32_MAX 0xffffffff /* 4294967295U */
+#define UINT64_MAX 0xffffffffffffffff /* 18446744073709551615U */
 
 #if defined(__cplusplus)
 }
