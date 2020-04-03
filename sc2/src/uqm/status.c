@@ -196,11 +196,11 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 	r.extent.width = STATUS_WIDTH - CAPTAIN_XOFFS;
 	r.extent.height = SHIP_STATUS_HEIGHT - CAPTAIN_YOFFS + 2;
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+			BUILD_COLOR_RGBA (0xAA, 0xAA, 0xAA, 0xFF));
 	DrawFilledRectangle (&r);
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x08, 0x08, 0x08), 0x1F));
+			BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
 	r.corner.x = 1;
 	r.corner.y = y_offs + SHIP_INFO_HEIGHT;
 	r.extent.width = 1;
@@ -211,7 +211,7 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 	DrawFilledRectangle (&r);
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x10, 0x10, 0x10), 0x19));
+			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
 	r.corner.x = STATUS_WIDTH - 1;
 	r.corner.y = y_offs + SHIP_INFO_HEIGHT;
 	r.extent.width = 1;
@@ -232,7 +232,7 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 	y = y_offs + CAPTAIN_YOFFS;
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x08, 0x08, 0x08), 0x1F));
+			BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
 	r.corner.x = 59;
 	r.corner.y = y;
 	r.extent.width = 1;
@@ -245,7 +245,7 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 	DrawFilledRectangle (&r);
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x10, 0x10, 0x10), 0x19));
+			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
 	r.corner.x = 3;
 	r.extent.width = 57;
 	r.corner.y = y - 1;

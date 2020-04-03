@@ -71,7 +71,7 @@ DrawShipNameString (UNICODE *pStr, COUNT CharCount, COORD y)
 	Text.baseline.x = STATUS_WIDTH >> 1;
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x10, 0x10, 0x10), 0x19));
+			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
 	font_DrawText (&Text);
 	--Text.baseline.y;
 	SetContextForeGroundColor (BLACK_COLOR);
@@ -86,7 +86,7 @@ ClearShipStatus (COORD y)
 	RECT r;
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+			BUILD_COLOR_RGBA (0xAA, 0xAA, 0xAA, 0xFF));
 	r.corner.x = 2;
 	r.corner.y = 3 + y;
 	r.extent.width = STATUS_WIDTH - 4;
@@ -100,7 +100,7 @@ OutlineShipStatus (COORD y)
 	RECT r;
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x08, 0x08, 0x08), 0x1F));
+			BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
 	r.corner.x = 0;
 	r.corner.y = 1 + y;
 	r.extent.width = STATUS_WIDTH;
@@ -116,7 +116,7 @@ OutlineShipStatus (COORD y)
 	DrawFilledRectangle (&r);
 
 	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x10, 0x10, 0x10), 0x19));
+			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
 	r.corner.x = STATUS_WIDTH - 1;
 	DrawFilledRectangle (&r);
 	r.corner.x = STATUS_WIDTH - 2;
@@ -182,7 +182,7 @@ InitShipStatus (SHIP_INFO *SIPtr, STARSHIP *StarShipPtr, RECT *pClipRect)
 		energy_height = (((SIPtr->max_energy + 1) >> 1) << 1) + 1;
 
 		SetContextForeGroundColor (
-				BUILD_COLOR (MAKE_RGB15 (0x08, 0x08, 0x08), 0x1F));
+				BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
 		r.corner.x = CREW_XOFFS - 1;
 		r.corner.y = GAUGE_YOFFS + 1 + y;
 		r.extent.width = STAT_WIDTH + 2;
@@ -201,7 +201,7 @@ InitShipStatus (SHIP_INFO *SIPtr, STARSHIP *StarShipPtr, RECT *pClipRect)
 		r.extent.height = crew_height;
 		DrawFilledRectangle (&r);
 		SetContextForeGroundColor (
-				BUILD_COLOR (MAKE_RGB15 (0x10, 0x10, 0x10), 0x19));
+				BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
 		r.corner.x = CREW_XOFFS - 1;
 		r.corner.y = GAUGE_YOFFS - crew_height + y;
 		r.extent.width = STAT_WIDTH + 2;
