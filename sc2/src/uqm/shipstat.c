@@ -184,7 +184,12 @@ InitShipStatus (SHIP_INFO *SIPtr, STARSHIP *StarShipPtr, RECT *pClipRect)
 	Stamp.origin.x = (STATUS_WIDTH >> 1);
 	Stamp.origin.y = 31 + y;
 	Stamp.frame = IncFrameIndex (SIPtr->icons);
-	DrawStamp (&Stamp);
+
+	SetContextForeGroundColor(WHITE_COLOR);
+	DrawFilledStamp(&Stamp);
+	--Stamp.origin.x;
+	SetContextForeGroundColor(BLACK_COLOR);
+	DrawFilledStamp (&Stamp);
 
 	{
 		SIZE crew_height, energy_height;
