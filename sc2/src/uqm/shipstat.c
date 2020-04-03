@@ -33,23 +33,36 @@ DrawCrewFuelString (COORD y, SIZE state)
 	if (state == 0)
 	{
 		Stamp.origin.x = CREW_XOFFS + (STAT_WIDTH >> 1) + 6;
-		if (optWhichMenu == OPT_PC)
-			Stamp.frame = SetAbsFrameIndex (StatusFrame, 4);
-		else
-			Stamp.frame = SetAbsFrameIndex (StatusFrame, 0);
+		Stamp.frame = SetAbsFrameIndex (StatusFrame, 0);
+
+		SetContextForeGroundColor(
+			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+		DrawFilledStamp (&Stamp);
+
+		--Stamp.origin.x;
 		DrawStamp (&Stamp);
 	}
 
 	Stamp.origin.x = ENERGY_XOFFS + (STAT_WIDTH >> 1) - 5;
-	if (optWhichMenu == OPT_PC)
-		Stamp.frame = SetAbsFrameIndex (StatusFrame, 5);
-	else
-		Stamp.frame = SetAbsFrameIndex (StatusFrame, 1);
+	Stamp.frame = SetAbsFrameIndex (StatusFrame, 1);
+
 	if (state >= 0)
+	{
+		SetContextForeGroundColor(
+			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+		DrawFilledStamp (&Stamp);
+
+		--Stamp.origin.x;
 		DrawStamp (&Stamp);
+	}
 	else
 	{
+		SetContextForeGroundColor(
+			BUILD_COLOR_RGBA(0x55, 0x55, 0x55, 0xFF));
+		DrawFilledStamp(&Stamp);
+
 #define LOW_FUEL_COLOR BUILD_COLOR (MAKE_RGB15 (0x1F, 0x1F, 0x0A), 0x0E)
+		--Stamp.origin.x;
 		SetContextForeGroundColor (LOW_FUEL_COLOR);
 		DrawFilledStamp (&Stamp);
 	}
@@ -73,7 +86,7 @@ DrawShipNameString (UNICODE *pStr, COUNT CharCount, COORD y)
 	SetContextForeGroundColor (
 			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
 	font_DrawText (&Text);
-	--Text.baseline.y;
+	--Text.baseline.x;
 	SetContextForeGroundColor (BLACK_COLOR);
 	font_DrawText (&Text);
 
