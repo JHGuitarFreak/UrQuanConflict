@@ -520,8 +520,8 @@ new_ship (ELEMENT *DeadShipPtr)
 				}
 			}
 #endif
-			if (RestartMusic)
-				BattleSong (TRUE);
+			/*if (RestartMusic)
+				BattleSong (TRUE);*/
 		}
 		else if (battle_counter[0] == 0 || battle_counter[1] == 0)
 		{

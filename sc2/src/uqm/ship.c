@@ -203,8 +203,8 @@ ship_preprocess (ELEMENT *ElementPtr)
 			else
 			{
 				ElementPtr->hTarget = 0;
-				if (!PLRPlaying ((MUSIC_REF)~0) && OpponentAlive (StarShipPtr))
-					BattleSong (TRUE);
+				/*if (!PLRPlaying ((MUSIC_REF)~0) && OpponentAlive (StarShipPtr))
+					BattleSong (TRUE);*/
 			}
 			return;
 		}

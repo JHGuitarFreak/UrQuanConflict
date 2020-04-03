@@ -410,7 +410,7 @@ Battle (BattleFrameCallback *callback)
 	BattleSeed = TFB_Random (); /* get next battle seed */
 #endif /* DEMO_MODE */
 
-	BattleSong (FALSE);
+	// BattleSong (FALSE);
 	
 	num_ships = InitShips ();
 
@@ -449,7 +449,7 @@ Battle (BattleFrameCallback *callback)
 			goto AbortBattle;
 		}
 
-		BattleSong (TRUE);
+		// BattleSong (TRUE);
 		bs.NextTime = 0;
 #ifdef NETPLAY
 		initBattleStateDataConnections ();
