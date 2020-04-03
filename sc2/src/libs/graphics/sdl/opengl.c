@@ -265,7 +265,7 @@ TFB_GL_InitGraphics (int driver, int flags, int width, int height)
 	log_add (log_Info, "Initializing Screen.");
 
 	ScreenWidth = 320;
-	ScreenHeight = 240;
+	ScreenHeight = 200;
 
 	if (TFB_GL_ConfigureVideo (driver, flags, width, height, 0))
 	{

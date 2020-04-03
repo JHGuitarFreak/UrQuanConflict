@@ -1316,17 +1316,17 @@ GetGlobalOptions (GLOBALOPTS *opts)
 	case 320:
 		if (GraphicsDriver == TFB_GFXDRIVER_SDL_PURE)
 		{
-			opts->res = OPTVAL_320_240;
+			opts->res = OPTVAL_320_200;
 		}
 		else
 		{
-			if (ScreenHeightActual != 240)
+			if (ScreenHeightActual != 200)
 			{
 				opts->res = OPTVAL_CUSTOM;
 			}
 			else
 			{
-				opts->res = OPTVAL_320_240;
+				opts->res = OPTVAL_320_200;
 				opts->driver = OPTVAL_ALWAYS_GL;
 			}
 		}
@@ -1334,49 +1334,49 @@ GetGlobalOptions (GLOBALOPTS *opts)
 	case 640:
 		if (GraphicsDriver == TFB_GFXDRIVER_SDL_PURE)
 		{
-			opts->res = OPTVAL_640_480;
+			opts->res = OPTVAL_640_400;
 		}
 		else
 		{
-			if (ScreenHeightActual != 480)
+			if (ScreenHeightActual != 400)
 			{
 				opts->res = OPTVAL_CUSTOM;
 			}
 			else
 			{
-				opts->res = OPTVAL_640_480;
+				opts->res = OPTVAL_640_400;
 				opts->driver = OPTVAL_ALWAYS_GL;
 			}
 		}
 		break;
-	case 800:
+	case 960:
 		if (ScreenHeightActual != 600)
 		{
 			opts->res = OPTVAL_CUSTOM;
 		}
 		else
 		{
-			opts->res = OPTVAL_800_600;
+			opts->res = OPTVAL_960_600;
 		}
-		break;
-	case 1024:
-		if (ScreenHeightActual != 768)
-		{
-			opts->res = OPTVAL_CUSTOM;
-		}
-		else
-		{
-			opts->res = OPTVAL_1024_768;
-		}		
 		break;
 	case 1280:
-		if (ScreenHeightActual != 960)
+		if (ScreenHeightActual != 800)
 		{
 			opts->res = OPTVAL_CUSTOM;
 		}
 		else
 		{
-			opts->res = OPTVAL_1280_960;
+			opts->res = OPTVAL_1280_800;
+		}
+		break;
+	case 1600:
+		if (ScreenHeightActual != 1000)
+		{
+			opts->res = OPTVAL_CUSTOM;
+		}
+		else
+		{
+			opts->res = OPTVAL_1600_1000;
 		}
 		break;
 	default:
@@ -1425,37 +1425,37 @@ SetGlobalOptions (GLOBALOPTS *opts)
 	NewGfxFlags &= ~TFB_GFXFLAGS_SCALE_ANY;
 
 	switch (opts->res) {
-	case OPTVAL_320_240:
+	case OPTVAL_320_200:
 		NewWidth = 320;
-		NewHeight = 240;
+		NewHeight = 200;
 #ifdef HAVE_OPENGL	       
 		NewDriver = (opts->driver == OPTVAL_ALWAYS_GL ? TFB_GFXDRIVER_SDL_OPENGL : TFB_GFXDRIVER_SDL_PURE);
 #else
 		NewDriver = TFB_GFXDRIVER_SDL_PURE;
 #endif
 		break;
-	case OPTVAL_640_480:
+	case OPTVAL_640_400:
 		NewWidth = 640;
-		NewHeight = 480;
+		NewHeight = 400;
 #ifdef HAVE_OPENGL	       
 		NewDriver = (opts->driver == OPTVAL_ALWAYS_GL ? TFB_GFXDRIVER_SDL_OPENGL : TFB_GFXDRIVER_SDL_PURE);
 #else
 		NewDriver = TFB_GFXDRIVER_SDL_PURE;
 #endif
 		break;
-	case OPTVAL_800_600:
-		NewWidth = 800;
+	case OPTVAL_960_600:
+		NewWidth = 960;
 		NewHeight = 600;
 		NewDriver = TFB_GFXDRIVER_SDL_OPENGL;
 		break;
-	case OPTVAL_1024_768:
-		NewWidth = 1024;
-		NewHeight = 768;
+	case OPTVAL_1280_800:
+		NewWidth = 1280;
+		NewHeight = 800;
 		NewDriver = TFB_GFXDRIVER_SDL_OPENGL;
 		break;
-	case OPTVAL_1280_960:
-		NewWidth = 1280;
-		NewHeight = 960;
+	case OPTVAL_1600_1000:
+		NewWidth = 1600;
+		NewHeight = 1000;
 		NewDriver = TFB_GFXDRIVER_SDL_OPENGL;
 		break;
 	default:

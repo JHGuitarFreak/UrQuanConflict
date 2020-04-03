@@ -38,27 +38,27 @@ Speech
 Aspect Ratio
 
 #(CAT_0_OPTS)
-320x240
-640x480
-800x600
-1024x768
-1280x960
+320x200
+640x400
+960x600
+1280x800
+1600x1000
 Custom
 
 #(CAT_0_OPT_0_DESC)
-320x240 resolution.
+320x200 resolution.
 
 #(CAT_0_OPT_1_DESC)
-640x480 resolution.
+640x400 resolution.
 
 #(CAT_0_OPT_2_DESC)
-800x600 resolution.
+960x600 resolution.
 
 #(CAT_0_OPT_3_DESC)
-1024x768 resolution.
+1280x800 resolution.
 
 #(CAT_0_OPT_4_DESC)
-1280x960 resolution.
+1600x1000 resolution.
 
 #(CAT_0_OPT_5_DESC)
 Custom resolution set from the commandline.

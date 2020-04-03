@@ -138,11 +138,11 @@ TFB_Pure_ConfigureVideo (int driver, int flags, int width, int height, int toggl
 
 	// must use SDL_SWSURFACE, HWSURFACE doesn't work properly
 	// with fades/scaling
-	if (width == 320 && height == 240)
+	if (width == 320 && height == 200)
 	{
 		videomode_flags = SDL_SWSURFACE;
 		ScreenWidthActual = 320;
-		ScreenHeightActual = 240;
+		ScreenHeightActual = 200;
 		graphics_backend = &pure_unscaled_backend;
 	}
 	else
@@ -277,7 +277,7 @@ TFB_Pure_InitGraphics (int driver, int flags, int width, int height)
 	log_add (log_Info, "Initializing Screen.");
 
 	ScreenWidth = 320;
-	ScreenHeight = 240;
+	ScreenHeight = 200;
 
 	if (TFB_Pure_ConfigureVideo (driver, flags, width, height, 0))
 	{
