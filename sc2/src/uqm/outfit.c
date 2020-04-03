@@ -61,8 +61,7 @@ DrawModuleStrings (MENU_STATE *pMS, BYTE NewModule)
 	r.extent.width = RADAR_WIDTH + 2;
 	r.extent.height = 11;
 	BatchGraphics ();
-	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+	SetContextForeGroundColor (DKGRAY_COLOR);
 	DrawFilledRectangle (&r);
 	if (NewModule >= EMPTY_SLOT)
 	{

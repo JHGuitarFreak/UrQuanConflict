@@ -75,6 +75,25 @@
 #define BRIGHT_BLUE_COLOR \
 		BUILD_COLOR (MAKE_RGB15 (0x00, 0x00, 0x1F), 0x01)
 
+// SC1 Colors
+#define FACE_COLOR \
+		BUILD_COLOR_RGBA (0xAA, 0xAA, 0xAA, 0xFF)
+#define SHADOW_COLOR \
+		BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF)
+#define LOW_FUEL_COLOR \
+		BUILD_COLOR (MAKE_RGB15 (0x1F, 0x1F, 0x0A), 0x0E)
+#define FUEL_UNIT_COLOR \
+		BUILD_COLOR (MAKE_RGB15 (0x14, 0x00, 0x00), 0x04)
+#define CREW_UNIT_COLOR \
+		BUILD_COLOR (MAKE_RGB15 (0x00, 0x14, 0x00), 0x02)
+#define ROBOT_UNIT_COLOR \
+		DKGRAY_COLOR
+
+#define CREW_COLOR_LOW_INTENSITY \
+		CREW_UNIT_COLOR
+#define CREW_COLOR_HIGH_INTENSITY \
+		BUILD_COLOR (MAKE_RGB15 (0x0A, 0x1E, 0x0A), 0x0A)
+
 #define NORMAL_ILLUMINATED_COLOR \
 		WHITE_COLOR
 #define NORMAL_SHADOWED_COLOR \
@@ -308,7 +327,7 @@
 // Color of the storage bay indicator, as shown beneath the flagship,
 // for the parts which are full.
 #define STORAGE_BAY_FULL_COLOR \
-		BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08)
+		DKGRAY_COLOR
 
 // Color of the storage bay indicator, as shown beneath the flagship,
 // for the parts which are empty.

@@ -231,8 +231,7 @@ ChangeSelection:
 					sprintf (buf, "%u", crew_level);
 				else
 					sprintf (buf, "%u/%u", crew_level, max_crew);
-				SetContextForeGroundColor (
-						BUILD_COLOR (MAKE_RGB15 (0x00, 0x14, 0x00), 0x02));
+				SetContextForeGroundColor (CREW_UNIT_COLOR);
 				font_DrawText (&t);
 			}
 

@@ -35,8 +35,7 @@ DrawCrewFuelString (COORD y, SIZE state)
 		Stamp.origin.x = CREW_XOFFS + (STAT_WIDTH >> 1) + 6;
 		Stamp.frame = SetAbsFrameIndex (StatusFrame, 0);
 
-		SetContextForeGroundColor(
-			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+		SetContextForeGroundColor (WHITE_COLOR);
 		DrawFilledStamp (&Stamp);
 
 		--Stamp.origin.x;
@@ -48,8 +47,7 @@ DrawCrewFuelString (COORD y, SIZE state)
 
 	if (state >= 0)
 	{
-		SetContextForeGroundColor(
-			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+		SetContextForeGroundColor (WHITE_COLOR);
 		DrawFilledStamp (&Stamp);
 
 		--Stamp.origin.x;
@@ -57,11 +55,9 @@ DrawCrewFuelString (COORD y, SIZE state)
 	}
 	else
 	{
-		SetContextForeGroundColor(
-			BUILD_COLOR_RGBA(0x55, 0x55, 0x55, 0xFF));
+		SetContextForeGroundColor(SHADOW_COLOR);
 		DrawFilledStamp(&Stamp);
 
-#define LOW_FUEL_COLOR BUILD_COLOR (MAKE_RGB15 (0x1F, 0x1F, 0x0A), 0x0E)
 		--Stamp.origin.x;
 		SetContextForeGroundColor (LOW_FUEL_COLOR);
 		DrawFilledStamp (&Stamp);
@@ -83,8 +79,7 @@ DrawShipNameString (UNICODE *pStr, COUNT CharCount, COORD y)
 	Text.baseline.y = STARCON_TEXT_HEIGHT + 2 + y;
 	Text.baseline.x = STATUS_WIDTH >> 1;
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+	SetContextForeGroundColor (WHITE_COLOR);
 	font_DrawText (&Text);
 	--Text.baseline.x;
 	SetContextForeGroundColor (BLACK_COLOR);
@@ -98,8 +93,7 @@ ClearShipStatus (COORD y)
 {
 	RECT r;
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0xAA, 0xAA, 0xAA, 0xFF));
+	SetContextForeGroundColor (FACE_COLOR);
 	r.corner.x = 2;
 	r.corner.y = 3 + y;
 	r.extent.width = STATUS_WIDTH - 4;
@@ -112,8 +106,7 @@ OutlineShipStatus (COORD y)
 {
 	RECT r;
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
+	SetContextForeGroundColor (SHADOW_COLOR);
 	r.corner.x = 0;
 	r.corner.y = 1 + y;
 	r.extent.width = STATUS_WIDTH;
@@ -128,8 +121,7 @@ OutlineShipStatus (COORD y)
 	++r.corner.x;
 	DrawFilledRectangle (&r);
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+	SetContextForeGroundColor (WHITE_COLOR);
 	r.corner.x = STATUS_WIDTH - 1;
 	DrawFilledRectangle (&r);
 	r.corner.x = STATUS_WIDTH - 2;
@@ -199,8 +191,7 @@ InitShipStatus (SHIP_INFO *SIPtr, STARSHIP *StarShipPtr, RECT *pClipRect)
 #undef MIN
 		energy_height = (((SIPtr->max_energy + 1) >> 1) << 1) + 1;
 
-		SetContextForeGroundColor (
-				BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
+		SetContextForeGroundColor (SHADOW_COLOR);
 		r.corner.x = CREW_XOFFS - 1;
 		r.corner.y = GAUGE_YOFFS + 1 + y;
 		r.extent.width = STAT_WIDTH + 2;
@@ -218,8 +209,7 @@ InitShipStatus (SHIP_INFO *SIPtr, STARSHIP *StarShipPtr, RECT *pClipRect)
 		r.extent.width = 1;
 		r.extent.height = crew_height;
 		DrawFilledRectangle (&r);
-		SetContextForeGroundColor (
-				BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+		SetContextForeGroundColor (WHITE_COLOR);
 		r.corner.x = CREW_XOFFS - 1;
 		r.corner.y = GAUGE_YOFFS - crew_height + y;
 		r.extent.width = STAT_WIDTH + 2;
@@ -286,8 +276,7 @@ InitShipStatus (SHIP_INFO *SIPtr, STARSHIP *StarShipPtr, RECT *pClipRect)
 			Text.baseline.x = STATUS_WIDTH >> 1;
 			Text.baseline.y = y + GAUGE_YOFFS + 3;
 
-			SetContextForeGroundColor (
-					BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
+			SetContextForeGroundColor (SHADOW_COLOR);
 			font_DrawText (&Text);
 
 			SetContextFont (OldFont);
@@ -354,8 +343,6 @@ DeltaStatistics (SHIP_INFO *ShipInfoPtr, COORD y_offs,
 		{
 			r.corner.y = (y + 1) -
 					(((oldNumBlocks + 1) >> 1) * (UNIT_HEIGHT + 1));
-#define CREW_UNIT_COLOR BUILD_COLOR (MAKE_RGB15 (0x00, 0x14, 0x00), 0x02)
-#define ROBOT_UNIT_COLOR BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08)
 			SetContextForeGroundColor (
 					(ShipInfoPtr->ship_flags & CREW_IMMUNE) ?
 					ROBOT_UNIT_COLOR : CREW_UNIT_COLOR);
@@ -417,7 +404,6 @@ DeltaStatistics (SHIP_INFO *ShipInfoPtr, COORD y_offs,
 	{
 		if (energy_delta > 0)
 		{
-#define FUEL_UNIT_COLOR BUILD_COLOR (MAKE_RGB15 (0x14, 0x00, 0x00), 0x04)
 			SetContextForeGroundColor (FUEL_UNIT_COLOR);
 			r.corner.y = (y + 1) -
 					(((ShipInfoPtr->energy_level + 1) >> 1) * (UNIT_HEIGHT + 1));

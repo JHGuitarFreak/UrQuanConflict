@@ -153,8 +153,7 @@ DrawBattleCrewAmount (SHIP_INFO *ShipInfoPtr, COORD y_offs)
 	sprintf (buf, "%u", ShipInfoPtr->crew_level);
 	SetContextFont (StarConFont);
 
-	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+	SetContextForeGroundColor (DKGRAY_COLOR);
 	DrawFilledRectangle (&r);
 	SetContextForeGroundColor (BLACK_COLOR);
 	font_DrawText (&t);
@@ -195,12 +194,10 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 	r.corner.y = y_offs + SHIP_INFO_HEIGHT;
 	r.extent.width = STATUS_WIDTH - CAPTAIN_XOFFS;
 	r.extent.height = SHIP_STATUS_HEIGHT - CAPTAIN_YOFFS;
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0xAA, 0xAA, 0xAA, 0xFF));
+	SetContextForeGroundColor (FACE_COLOR);
 	DrawFilledRectangle (&r);
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
+	SetContextForeGroundColor (SHADOW_COLOR);
 	r.corner.x = 1;
 	r.corner.y = y_offs + SHIP_INFO_HEIGHT;
 	r.extent.width = 1;
@@ -210,8 +207,7 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 	++r.extent.height;
 	DrawFilledRectangle (&r);
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+	SetContextForeGroundColor (WHITE_COLOR);
 	r.corner.x = STATUS_WIDTH - 1;
 	r.corner.y = y_offs + SHIP_INFO_HEIGHT;
 	r.extent.width = 1;
@@ -231,8 +227,7 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 
 	y = y_offs + CAPTAIN_YOFFS;
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0x55, 0x55, 0x55, 0xFF));
+	SetContextForeGroundColor (SHADOW_COLOR);
 	r.corner.x = 59;
 	r.corner.y = y;
 	r.extent.width = 1;
@@ -244,8 +239,7 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 	r.extent.height = 1;
 	DrawFilledRectangle (&r);
 
-	SetContextForeGroundColor (
-			BUILD_COLOR_RGBA (0xFF, 0xFF, 0xFF, 0xFF));
+	SetContextForeGroundColor (WHITE_COLOR);
 	r.corner.x = 3;
 	r.extent.width = 57;
 	r.corner.y = y - 1;
@@ -272,8 +266,7 @@ DrawCaptainsWindow (STARSHIP *StarShipPtr)
 		t.align = ALIGN_CENTER;
 		t.pStr = GLOBAL_SIS (CommanderName);
 		t.CharCount = (COUNT)~0;
-		SetContextForeGroundColor (
-				BUILD_COLOR (MAKE_RGB15 (0x00, 0x14, 0x00), 0x02));
+		SetContextForeGroundColor (CREW_UNIT_COLOR);
 		SetContextFont (TinyFont);
 		font_DrawText (&t);
 	}

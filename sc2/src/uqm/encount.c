@@ -464,8 +464,7 @@ DrawFadeText (const UNICODE *str1, const UNICODE *str2, BOOLEAN fade_in,
 			SleepThreadUntil (TimeIn + (ONE_SECOND / 20));
 			TimeIn = GetTimeCounter ();
 		}
-		SetContextForeGroundColor (
-				BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+		SetContextForeGroundColor (DKGRAY_COLOR);
 		font_DrawText (&t1);
 		font_DrawText (&t2);
 	}

@@ -80,7 +80,7 @@ ConfirmSaveLoad (STAMP *MsgStamp)
 	DrawStarConBox (&r, 2,
 			BUILD_COLOR (MAKE_RGB15 (0x10, 0x10, 0x10), 0x19),
 			BUILD_COLOR (MAKE_RGB15 (0x08, 0x08, 0x08), 0x1F),
-			TRUE, BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+			TRUE, DKGRAY_COLOR);
 	SetContextForeGroundColor (
 			BUILD_COLOR (MAKE_RGB15 (0x14, 0x14, 0x14), 0x0F));
 	font_DrawText (&t);

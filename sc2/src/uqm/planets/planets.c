@@ -131,8 +131,7 @@ DrawPlanetSurfaceBorder (void)
 	BatchGraphics ();
 
 	// Border bulk
-	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+	SetContextForeGroundColor (DKGRAY_COLOR);
 	r.corner.x = 0;
 	r.corner.y = clipRect.extent.height - MAP_HEIGHT - MAP_BORDER_HEIGHT;
 	r.extent.width = clipRect.extent.width;

@@ -86,8 +86,7 @@ ClearSISRect (BYTE ClearFlags)
 	CONTEXT OldContext;
 
 	OldContext = SetContext (StatusContext);
-	OldColor = SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+	OldColor = SetContextForeGroundColor (DKGRAY_COLOR);
 
 	r.corner.x = 2;
 	r.extent.width = STATUS_WIDTH - 4;

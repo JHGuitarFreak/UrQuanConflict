@@ -16,6 +16,7 @@
  *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
+#include "colors.h"
 #include "element.h"
 #include "init.h"
 #include "races.h"
@@ -215,10 +216,6 @@ do_damage (ELEMENT *ElementPtr, SIZE damage)
 	}
 }
 
-#define CREW_COLOR_LOW_INTENSITY \
-		BUILD_COLOR (MAKE_RGB15 (0x00, 0x14, 0x00), 0x02)
-#define CREW_COLOR_HIGH_INTENSITY \
-		BUILD_COLOR (MAKE_RGB15 (0x0A, 0x1E, 0x0A), 0x0A)
 void
 crew_preprocess (ELEMENT *ElementPtr)
 {
@@ -343,8 +340,7 @@ AbandonShip (ELEMENT *ShipPtr, ELEMENT *TargetPtr,
 		CrewPtr->state_flags = APPEARING | FINITE_LIFE | CREW_OBJECT;
 		CrewPtr->life_span = CREW_LIFE;
 		SetPrimType (&DisplayArray[CrewPtr->PrimIndex], POINT_PRIM);
-		SetPrimColor (&DisplayArray[CrewPtr->PrimIndex],
-				BUILD_COLOR (MAKE_RGB15 (0x00, 0x14, 0x00), 0x02));
+		SetPrimColor (&DisplayArray[CrewPtr->PrimIndex], CREW_UNIT_COLOR);
 		CrewPtr->current.image.frame = DecFrameIndex (stars_in_space);
 		CrewPtr->current.image.farray = &stars_in_space;
 		CrewPtr->preprocess_func = crew_preprocess;

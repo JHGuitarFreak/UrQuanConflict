@@ -506,8 +506,7 @@ DrawMenuStateStrings (BYTE beg_index, SWORD NewState)
 	r.corner.y = s.origin.y - 11;
 	r.extent.width = RADAR_WIDTH + 2;
 	BatchGraphics ();
-	SetContextForeGroundColor (
-			BUILD_COLOR (MAKE_RGB15 (0x0A, 0x0A, 0x0A), 0x08));
+	SetContextForeGroundColor (DKGRAY_COLOR);
 	if (s.frame && optWhichMenu == OPT_PC)
 	{
 		if (beg_index == PM_CREW)
