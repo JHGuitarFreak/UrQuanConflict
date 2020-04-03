@@ -208,6 +208,7 @@ while (--ac > 0)
 	luaUqm_initState ();
 	// show splash and init the kernel in the meantime
 	SplashScreen (BackgroundInitKernel);
+	Introduction ();
 
 //	OpenJournal ();
 	while (StartGame ())

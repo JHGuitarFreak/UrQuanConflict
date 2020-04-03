@@ -390,7 +390,7 @@ StartGame (void)
 
 		if (LastActivity & CHECK_RESTART)
 		{	// starting a new game
-			Introduction ();
+			// Introduction ();
 		}
 	
 	} while (GLOBAL (CurrentActivity) & CHECK_ABORT);
